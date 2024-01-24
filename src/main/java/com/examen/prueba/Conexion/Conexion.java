@@ -1,13 +1,37 @@
 package com.examen.prueba.Conexion;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+
+@Component
 public class Conexion {
-    private static final String url = "jdbc:oracle:thin:@192.168.100.43:1521:TEST";
-    private static final String user = "SISNICPLUS";
-    private static final String password = "test";
+
+    private static String url;
+
+    private static String user;
+    private static String password;
+
+    @Value("${spring.datasource.url}")
+    public void setUrl(String url) {
+        Conexion.url = url;
+    }
+
+    @Value("${spring.datasource.username}")
+    public void setUser(String user) {
+        Conexion.user = user;
+    }
+
+    @Value("${spring.datasource.password}")
+    public void setPassword(String password) {
+        Conexion.password = password;
+    }
+
     public static synchronized Connection getConexion() {
         Connection cn = null;
         try {
