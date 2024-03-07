@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+
 @Entity
 @Table(name="Producto")
 @Data
@@ -14,10 +16,7 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String descripcion;
-    private Double largo;
-    private Double Ancho;
-    private String Color;
-    private String CodigoBarras;
+    private String nombre;
+    private Date fechaRegistro;
 
 }

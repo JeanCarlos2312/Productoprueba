@@ -1,14 +1,14 @@
-package com.examen.prueba.DTO;
+package com.examen.prueba.modelo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class productoDTO {
-    private String nombre;
+public class ErrorResponse {
+
+    private String codigoRespuesta;
+    private String mensaje;
 }
